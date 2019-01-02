@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>d</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500" style="border:1px solid black"></canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            
+            var img = new Image();
+            img.src = './wood-pattern.png';
+            img.onload = function(){
+                context.rect(0,0,canvas.width,canvas.height);
+                context.drawImage(img,10,10,250,250,10,10,200,200); //이미지,좌표x,좌표y,넓이,높이,짜를좌표x,짜를좌표y,짜를넓이x,짜를넓이,y
+            }
+        }
+    </script>
+</body>

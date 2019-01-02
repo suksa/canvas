@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>d</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            
+            context.beginPath();
+            context.moveTo(75, 40);
+            context.bezierCurveTo(75, 37, 70, 25, 50, 25);
+            context.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+            context.bezierCurveTo(20, 80, 40, 102, 75, 120);
+            context.lineWidth = 10;
+            
+            context.strokeStyle = 'red';
+            context.stroke();
+        }
+    </script>
+</body>

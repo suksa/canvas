@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        body{margin: 0;padding: 0}
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('myCanvas');
+            var context = canvas.getContext('2d');
+            
+            //butt line 디폴트속성
+            context.beginPath();
+            context.moveTo(200, canvas.height / 2 - 50);
+            context.lineTo(canvas.width - 200, canvas.height / 2 - 50);
+            context.lineWidth = 20;
+            context.strokeStyle = 'red';
+            context.lineCap = 'butt';
+            context.stroke();
+            
+            //round line
+            context.beginPath();
+            context.moveTo(200, canvas.height / 2);
+            context.lineTo(canvas.width - 200, canvas.height / 2);
+            context.lineWidth = 20;
+            context.strokeStyle = 'red';
+            context.lineCap = 'round';
+            context.stroke();
+            
+            //square line
+            context.beginPath();
+            context.moveTo(200, canvas.height / 2 + 50);
+            context.lineTo(canvas.width - 200, canvas.height / 2 + 50);
+            context.lineWidth = 20;
+            context.strokeStyle = 'red';
+            context.lineCap = 'square';
+            context.stroke();
+        }
+    </script>
+</body>
+</html>

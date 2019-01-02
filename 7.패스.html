@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>d</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            
+            context.beginPath();
+            context.moveTo(100,20);
+            
+            //line1
+            context.lineTo(200,160)
+            
+            //curve
+            context.quadraticCurveTo(230,200,250,120);
+            
+            //curve
+            context.bezierCurveTo(290,-40,300,200,400,150);
+            
+            //line2
+            context.lineTo(500,90)
+            
+            context.lineWidth = 10;
+            context.strokeStyle = 'red';
+            context.stroke();
+        }
+    </script>
+</body>

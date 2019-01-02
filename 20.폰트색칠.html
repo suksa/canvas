@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>d</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500" style="border:1px solid black"></canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            
+            context.font = '40px dotum';
+            context.fillStyle = 'blue';
+            context.fillText('Hello World',100,100);
+        }
+    </script>
+</body>

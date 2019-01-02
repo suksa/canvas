@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>d</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            
+            context.beginPath();
+            context.rect(10,10,100,100);
+            context.fillStyle='yellow';
+            context.fill();
+            
+            context.strokeStyle = 'red';
+            context.lineWidth = 10
+            context.stroke();
+            
+        }
+    </script>
+</body>

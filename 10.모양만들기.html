@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>d</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            
+            //샤프시작
+            context.beginPath();
+            context.moveTo(170, 80);
+            context.bezierCurveTo(130,100,130,150,230,150);
+            context.bezierCurveTo(230,150,280,200,330,150);
+            context.bezierCurveTo(330,150,390,160,360,100);
+            context.bezierCurveTo(360,100,390,40,320,50);
+            context.bezierCurveTo(250,50,230,20,170,80);
+            
+            context.closePath();
+            context.lineWidth = 5;
+            context.strokeStyle = 'blue';
+            context.stroke();
+        }
+    </script>
+</body>

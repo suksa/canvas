@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>und</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="578" height="430"></canvas>
+    <canvas id="tempCanvas" width="578" height="430" style="display:none;"></canvas>
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById('myCanvas');
+            var context = canvas.getContext('2d');
+            var tempCanvas = document.getElementById('tempCanvas');
+            var tempContext = tempCanvas.getContext('2d');
+
+            var squareWidth = 55;
+            var circleRadius = 35;
+            var shapeOffset = 50;
+            var operationOffset = 150;
+            var arr = [];
+
+            arr.push('source-atop');
+            arr.push('source-in');
+            arr.push('source-out');
+            arr.push('source-over');
+            arr.push('destination-atop');
+            arr.push('destination-in');
+            arr.push('destination-out');
+            arr.push('destination-over');
+            arr.push('lighter');
+            arr.push('darker');
+            arr.push('xor');
+            arr.push('copy');
+            
+            //padding
+            context.translate(10,10)
+            
+            for(var n=0;n<arr.length;n++){
+                var thisOperation = arr[n];
+                
+                tempContext.save();
+                
+                //clear temp context
+                tempContext.clearRect(0,0,canvas.width,canvas.height);
+                
+                //사각형 그리기
+                tempContext.beginPath();
+                tempContext.rect(0, 0, squareWidth, squareWidth);
+                tempContext.fillStyle = 'blue';
+                tempContext.fill();
+                
+                tempContext.globalCompositeOperation = thisOperation; //속성들
+                
+                //원
+                tempContext.beginPath();
+                tempContext.arc(shapeOffset, shapeOffset, circleRadius, 0, 2 * Math.PI, false);
+                tempContext.fillStyle = 'red';
+                tempContext.fill();
+                tempContext.restore()
+                
+                //글자
+                tempContext.font = '12px dotum';
+                tempContext.fillStyle = 'black';
+                tempContext.fillText(thisOperation,0,squareWidth+45);
+                
+                //
+                if(n>0){
+                    if(n%4===0){
+                        context.translate(operationOffset * -3, operationOffset);
+                    }else{
+                        context.translate(operationOffset,0);
+                    }
+                }
+                context.drawImage(tempCanvas, 0, 0);
+            }
+        }
+    </script>
+</body>

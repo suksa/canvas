@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>d</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500" style="border:1px solid black"></canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            
+            context.rect(0,0,canvas.width,canvas.height)
+            //그라디언트 추가
+            var grd = context.createLinearGradient(0,500,500,0); //좌표설정 (x1,y1,x2,y2)
+            //red
+            grd.addColorStop(0,'red');
+            //blue
+            grd.addColorStop(1,'blue');
+            
+            context.fillStyle = grd;
+            context.fill();
+        }
+    </script>
+</body>

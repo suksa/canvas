@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>und</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="500" style="border:1px solid black"></canvas>
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            var x = canvas.width / 2;
+            var y = canvas.height / 2;
+            var radius = 75;
+            var offset = 50;
+            
+            context.save();
+            context.beginPath();
+            context.arc(x,y,radius,0,2*Math.PI,false);
+            context.clip() //클리핑
+            
+            context.beginPath();
+            context.arc(x - offset, y - offset, radius, 0, 2 * Math.PI, false);
+            context.fillStyle = 'blue';
+            context.fill();
+
+            context.beginPath();
+            context.arc(x + offset, y, radius, 0, 2 * Math.PI, false);
+            context.fillStyle = 'yellow';
+            context.fill();
+
+            context.beginPath();
+            context.arc(x, y + offset, radius, 0, 2 * Math.PI, false);
+            context.fillStyle = 'red';
+            context.fill();
+            
+            context.restore();
+            context.beginPath();
+            context.arc(x, y, radius, 0, 2 * Math.PI, false);
+            context.lineWidth = 10;
+            context.strokeStyle = 'blue';
+            context.stroke();
+        }
+    </script>
+</body>

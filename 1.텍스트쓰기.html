@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        body{margin: 0;padding: 0}
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="578" height="500"></canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('myCanvas');
+            var getContext = canvas.getContext('2d');
+            
+            getContext.font = '30px Calibri';
+            getContext.fillStyle = 'red';
+            getContext.fillText('hello world',100,100);
+        }
+    </script>
+</body>
+</html>

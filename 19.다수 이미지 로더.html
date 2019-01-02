@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>d</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500" style="border:1px solid black"></canvas>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+            
+            function getImages(source,callback){
+                var images = {};
+                var sourceIndex = 0;
+                var sourceLoad = 0;
+                
+                for(var src in source){
+                    sourceIndex++;
+                }
+                
+                for(var src in source){
+                    images[src] = new Image();
+                    images[src].src = source[src];
+                    images[src].onload = function(){
+                        if(++sourceLoad >= sourceIndex){
+                            callback(images);
+                        }
+                    }
+                }
+            }
+            var sources = {
+                man:'darth-vader.jpg',
+                yoda:'yoda.jpg'
+            }
+            getImages(sources,function(img){
+                context.drawImage(img.man,0,0);
+                context.drawImage(img.yoda,200,200);
+                context.drawImage(img.yoda,300,300);
+            })
+        }
+    </script>
+</body>
